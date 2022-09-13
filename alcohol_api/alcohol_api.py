@@ -1,3 +1,9 @@
+#Rey Rivera
+#Build Script 4
+#
+#Create a script that uses Python and/or Bash to interact specifically with an alcohol API
+#Store the API information in a CSV file
+
 import requests
 import csv
 #api header to access the cocktail db
@@ -11,11 +17,14 @@ def randomCocktail():
     userInput = input("Random cocktail will be generated. Press Enter to continue")
     response = requests.request("GET", url, headers=headers)
     tempJson=response.json()
+    #header for the csv files
     csvHeader = ['idDrink', 'Name', 'Instructions', 'GlassType', 'Type of Drink', 'Alcoholic?']
 
+    #loop through the json file
     dataArray = []
     for item in tempJson['drinks']:
         listing = [item['idDrink'],item['strDrink'],item['strInstructions'], item['strGlass'], item['strCategory'], item['strAlcoholic']]
+        #add to an array
         dataArray.append(listing)
     with open("random.csv", 'w') as f:
         writer = csv.writer(f)
@@ -30,11 +39,14 @@ def popularCocktail():
     userInput = input("List of popular drinks is being retrieved. Press Enter to continue")
     response = requests.request("GET", url, headers=headers)
     tempJson=response.json()
+    #header for the csv files
     csvHeader = ['idDrink', 'Name', 'Instructions', 'GlassType', 'Type of Drink', 'Alcoholic?']
 
+    #loop through the json file
     dataArray = []
     for item in tempJson['drinks']:
         listing = [item['idDrink'],item['strDrink'],item['strInstructions'], item['strGlass'], item['strCategory'], item['strAlcoholic']]
+        #add to an array
         dataArray.append(listing)
     with open("popular.csv", 'w') as f:
         writer = csv.writer(f)
