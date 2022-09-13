@@ -1,0 +1,9 @@
+#!bin/bash
+#
+#
+#commands to configure jenkins on an ubuntu device
+#
+#update machine
+sudo apt update;
+sudo apt install default-jre;
+
