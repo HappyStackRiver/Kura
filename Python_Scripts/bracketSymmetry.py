@@ -21,8 +21,8 @@ def checkSymmetry(userInput):
       #if the reverse inverse is equal, you have symmetry
       if firstHalf is oppositeHalf:
           return True         
-  else:
-      return False
+      else:
+        return False
 print(checkSymmetry("()()"))
 print(checkSymmetry("((){})"))
 print(checkSymmetry("({})"))
